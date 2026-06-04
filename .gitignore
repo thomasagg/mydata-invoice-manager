@@ -1,0 +1,27 @@
+# Maven build output
+target/
+*.class
+*.jar
+*.war
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.eclipse/
+.classpath
+.project
+.settings/
+
+# Node
+node_modules/
+dist/
+
+# env files with secrets
+.env
+.env.local
+.env.production
+
+# OS stuff
+.DS_Store
+Thumbs.db
