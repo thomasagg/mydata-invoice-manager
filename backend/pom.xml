@@ -12,9 +12,9 @@
     </parent>
 
     <groupId>com.invoiceapp</groupId>
-    <artifactId>invoice-app</artifactId>
+    <artifactId>mydata-invoice-manager</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>invoice-app</name>
+    <name>mydata-invoice-manager</name>
     <description>myDATA invoice manager</description>
 
     <properties>
