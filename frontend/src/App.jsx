@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Clients from './pages/Clients'
+import NewInvoice from './pages/NewInvoice'
 
 function PrivateRoute({ children }) {
   return localStorage.getItem('token') ? children : <Navigate to="/login" replace />
@@ -26,6 +27,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/clients" element={<PrivateRoute><Layout><Clients /></Layout></PrivateRoute>} />
+        <Route path="/invoices/new" element={<PrivateRoute><Layout><NewInvoice /></Layout></PrivateRoute>} />
         <Route path="/" element={
           <PrivateRoute>
             <Layout>
