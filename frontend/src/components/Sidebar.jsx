@@ -1,7 +1,9 @@
 import { NavLink, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export default function Sidebar() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
   const logout = () => {
     localStorage.removeItem('token')
@@ -9,9 +11,9 @@ export default function Sidebar() {
   }
 
   const navItems = [
-    { to: '/', label: 'Dashboard', end: true },
-    { to: '/clients', label: 'Clients' },
-    { to: '/invoices', label: 'Invoices' },
+    { to: '/', label: t('nav.dashboard'), end: true },
+    { to: '/clients', label: t('nav.clients') },
+    { to: '/invoices', label: t('nav.invoices') },
   ]
 
   return (
@@ -44,7 +46,7 @@ export default function Sidebar() {
           onClick={logout}
           className="h-8 px-3 rounded-md text-sm font-medium text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors w-full text-left"
         >
-          Logout
+          {t('nav.logout')}
         </button>
       </div>
     </aside>
