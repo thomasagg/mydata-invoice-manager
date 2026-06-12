@@ -1,0 +1,37 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: invoicedb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      JWT_SECRET: changethisinproductionpleaseusealongrandombstring1234567890abcdef
+      MYDATA_USER_ID: ThomasAng
+      MYDATA_SUBSCRIPTION_KEY: 73aa98fe4a841fead79f7fb3a8f46ce1
+      MYDATA_BASE_URL: https://mydataapidev.aade.gr
+    depends_on:
+      - postgres
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
